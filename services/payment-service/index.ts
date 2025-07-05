@@ -44,5 +44,5 @@ app.post("/payment-service", async (req, res) => {
 app.listen(port, () => {
   connectToKafka();
 
-  console.log(`App running on port:${port}`);
+  console.log(`Payment service running on port:${port}`);
 });
