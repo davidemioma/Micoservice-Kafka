@@ -10,9 +10,18 @@ export const producer = kafka.producer();
 export const connectToKafka = async () => {
   try {
     await producer.connect();
-
     console.log("Producer (payment-service) connected!");
   } catch (err) {
     console.log("Error connecting to Kafka (payment-service)", err);
+  }
+};
+
+export const ensureProducerConnection = async () => {
+  try {
+    await producer.connect();
+    console.log("Producer connection ensured!");
+  } catch (err) {
+    console.log("Error ensuring producer connection:", err);
+    throw err;
   }
 };
